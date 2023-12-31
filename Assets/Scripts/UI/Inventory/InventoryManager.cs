@@ -154,8 +154,7 @@ public class InventoryManager : MonoBehaviour
          * be called.
          */
         
-        
-        
+        mItemCreateButton = itemDetails.Q<Button>("ItemDetailButtonCreate");
         
         await UniTask.WaitForEndOfFrame();
 
@@ -389,9 +388,22 @@ public class InventoryManager : MonoBehaviour
         
         if (item == null)
         { // We have no item selected -> Provide some default information.
+
+            mItemDetailName.text = "No item selected";
+            mItemDetailDescription.text = "Select an item from your inventory";
+            mItemDetailCost.text = "";
+
+            mItemCreateButton.SetEnabled(false);
         }
         else
         { // We have item selected -> Use the item information.
+
+            mItemDetailName.text = item.definition.readableName;
+            mItemDetailDescription.text = item.definition.readableDescription;
+            mItemDetailCost.text = "" + item.definition.cost;
+
+            bool buyable = item.definition.cost <= availableCurrency;
+            mItemCreateButton.SetEnabled(buyable);
         }
         
         selectedItem = item;
