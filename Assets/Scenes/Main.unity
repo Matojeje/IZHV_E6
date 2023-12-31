@@ -511,6 +511,8 @@ MonoBehaviour:
   - definition: {fileID: 11400000, guid: e390f8498e11c12428c535305ce1ef63, type: 2}
   - definition: {fileID: 11400000, guid: a8f10d9350e1ac54a85650d7911b64ba, type: 2}
   - definition: {fileID: 11400000, guid: c40c76109cac301419a35d2f2df72493, type: 2}
+  - definition: {fileID: 11400000, guid: e93ba9df87e4e9a49a0d9370680347fc, type: 2}
+  - definition: {fileID: 11400000, guid: f67881743bef04d4e946694ae559c0d0, type: 2}
   inventoryDimension: {x: 0, y: 0}
 --- !u!114 &291797075
 MonoBehaviour:
@@ -1495,9 +1497,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.1590909
+    x: 0.15181431
     y: 0
-    width: 0.6818182
+    width: 0.6963714
     height: 1
   near clip plane: 0.3
   far clip plane: 1000

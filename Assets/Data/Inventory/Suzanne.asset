@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2133400072f95a2449b36de2bf5081af, type: 3}
+  m_Name: Suzanne
+  m_EditorClassIdentifier: 
+  id: d498e8c5-f3dd-4c5d-a896-1ec4eead5001
+  readableName: Suzanne
+  readableDescription: Great choice for blending.
+  cost: 123
+  prefab: {fileID: 919132149155446097, guid: 546842af887e60849afedeef6e4be40c, type: 3}
