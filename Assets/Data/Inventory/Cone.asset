@@ -16,4 +16,4 @@ MonoBehaviour:
   readableName: Cone
   readableDescription: Traffic? Pine? Ice cream?
   cost: 8
-  prefab: {fileID: 919132149155446097, guid: 908f0ec7936cb9f47b62a39310ff1c5b, type: 3}
+  prefab: {fileID: 7354980557844379772, guid: 94698f4ab82c469469ae6665cedb8432, type: 3}
