@@ -29,7 +29,7 @@ public class DebugMenuUI : MonoBehaviour
     /// <summary> Dummy value used for demonstration. </summary>
     private float mDummyValue = 0.0f;
 
-    private float theVolume = SoundManager.Instance.masterVolume;
+    private float theVolume;
     
 #endregion // Internal
 
@@ -57,6 +57,8 @@ public class DebugMenuUI : MonoBehaviour
             mScreenRect.x + mScreenRect.width - WINDOW_DIMENSION.x, mScreenRect.y, 
             WINDOW_DIMENSION.x, WINDOW_DIMENSION.y
         );
+
+        theVolume = SoundManager.Instance.masterVolume;
     }
 
     /// <summary> Update called once per frame. </summary>
