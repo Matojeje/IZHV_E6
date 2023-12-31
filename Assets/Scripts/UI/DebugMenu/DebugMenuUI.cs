@@ -28,6 +28,8 @@ public class DebugMenuUI : MonoBehaviour
 
     /// <summary> Dummy value used for demonstration. </summary>
     private float mDummyValue = 0.0f;
+
+    private float theVolume = SoundManager.Instance.masterVolume;
     
 #endregion // Internal
 
@@ -176,7 +178,39 @@ public class DebugMenuUI : MonoBehaviour
                  */
                 
                 
-                
+                GUILayout.BeginHorizontal();
+                {
+                    GUILayout.Label("Volume: ", GUILayout.Width(WINDOW_DIMENSION.x / 4.0f));
+
+                    // https://www.desmos.com/calculator/zvfctgzqiv
+                    float log(double input) { return 50 * (float) Math.Log10 (input+81) - 80; }
+
+                    var volume = theVolume;
+                    volume = GUILayout.HorizontalSlider(volume, -80.0f, 20.0f, GUILayout.ExpandWidth(true));
+                    
+                    if (GUI.changed) {
+                        theVolume = volume;
+                        SoundManager.Instance.masterVolume = log(volume);
+                    }
+                }
+                GUILayout.EndHorizontal();
+
+                GUILayout.BeginHorizontal();
+                {
+                    GUILayout.Label("Debug menu", GUILayout.ExpandWidth(true));
+
+                    var muted = SoundManager.Instance.masterMuted;
+                    muted = GUILayout.Toggle(muted, "Mute");
+
+                    var interactive = GameManager.Instance.interactiveMode;
+                    interactive = GUILayout.Toggle(interactive, "Interactive");
+                    
+                    if (GUI.changed) {
+                        SoundManager.Instance.masterMuted = muted;
+                        GameManager.Instance.interactiveMode = interactive;
+                    }
+                }
+                GUILayout.EndHorizontal();
                 
                 
                 // Placing the elements next to each other.
