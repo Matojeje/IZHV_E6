@@ -134,7 +134,7 @@ public class InventoryManager : MonoBehaviour
         mItemDetailName = itemDetails.Q<Label>("ItemDetailName");
         mItemDetailDescription = itemDetails.Q<Label>("ItemDetailDescription");
         mItemDetailCost = itemDetails.Q<Label>("ItemDetailCost");
-        
+
         mItemCreateButton = itemDetails.Q<Button>("ItemDetailButtonCreate");
         var currencyIcon = mRoot.Q<Button>("CurrencyButton");
 
@@ -443,12 +443,14 @@ public class InventoryManager : MonoBehaviour
          */
         
         if (selectedItem == null) return false;
-
         var itemDefinition = selectedItem?.definition;
 
         if (availableCurrency < itemDefinition.cost) return false;
 
-        if (!!Instantiate(itemDefinition.prefab, createDestination.transform) == false) return false;
+        var GO = Instantiate(itemDefinition.prefab, createDestination.transform);
+        if (!!GO == false) return false;
+
+        GO.transform.position = new Vector3(0, 1.5f, 0);
 
         availableCurrency -= itemDefinition.cost;
 
