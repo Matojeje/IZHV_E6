@@ -155,6 +155,8 @@ public class InventoryManager : MonoBehaviour
          */
         
         mItemCreateButton = itemDetails.Q<Button>("ItemDetailButtonCreate");
+        mItemCreateButton.clicked += () => { CreateItem(); };
+
         
         await UniTask.WaitForEndOfFrame();
 
@@ -437,8 +439,16 @@ public class InventoryManager : MonoBehaviour
          * These items are not cheap to make!
          */
         
+        if (selectedItem == null) return false;
+
         var itemDefinition = selectedItem?.definition;
-        
-        return false;
+
+        if (availableCurrency < itemDefinition.cost) return false;
+
+        if (!!Instantiate(itemDefinition.prefab, createDestination.transform) == false) return false;
+
+        availableCurrency -= itemDefinition.cost;
+
+        return true;
     }
 }
