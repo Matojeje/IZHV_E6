@@ -135,6 +135,9 @@ public class InventoryManager : MonoBehaviour
         mItemDetailDescription = itemDetails.Q<Label>("ItemDetailDescription");
         mItemDetailCost = itemDetails.Q<Label>("ItemDetailCost");
         
+        mItemCreateButton = itemDetails.Q<Button>("ItemDetailButtonCreate");
+        var currencyIcon = mRoot.Q<Button>("CurrencyButton");
+
         /*
          * Task 2c: Link the Button
          *
@@ -154,8 +157,8 @@ public class InventoryManager : MonoBehaviour
          * be called.
          */
         
-        mItemCreateButton = itemDetails.Q<Button>("ItemDetailButtonCreate");
         mItemCreateButton.clicked += () => { CreateItem(); };
+        currencyIcon.clicked += () => { mAvailableCurrency++; };
 
         
         await UniTask.WaitForEndOfFrame();
